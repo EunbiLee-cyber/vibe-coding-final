@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>제주 바이브코딩 4박 5일</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Fixed Header -->
+  <header id="main-header">
+    <nav class="nav-links">
+      <a href="#hero"  class="nav-link" data-section="hero">Home</a>
+      <a href="#intro" class="nav-link" data-section="intro">Intro</a>
+      <a href="#day-1" class="nav-link" data-section="day-1">Day 1</a>
+      <a href="#day-2" class="nav-link" data-section="day-2">Day 2</a>
+      <a href="#day-3" class="nav-link" data-section="day-3">Day 3</a>
+      <a href="#day-4" class="nav-link" data-section="day-4">Day 4</a>
+      <a href="#day-5" class="nav-link" data-section="day-5">Day 5</a>
+    </nav>
+  </header>
+
+  <!-- ══════════════ SECTION 01 · HERO ══════════════ -->
+  <section id="hero" class="scene">
+    <h1 class="hero-title"><span class="wavy">바이브코딩</span></h1>
+    <div class="hero-images" id="hero-images">
+      <img class="hero-island"    src="assets/images/hero_island.webp"       alt="제주 섬">
+      <img class="hero-building"  src="assets/images/hero_buildingwebp.webp" alt="빌딩">
+    </div>
+  </section>
+
+  <!-- ══════════════ SECTION 02 · INTRO ══════════════ -->
+  <section id="intro" class="scene intro-scene">
+    <div class="curriculum-left">
+      <p class="curriculum-text">Vibe<br>Coding<br>Curriculum</p>
+    </div>
+    <div class="curriculum-cards" id="curriculum-cards">
+      <div class="c-card" data-i="0"><span class="c-day">Day1</span><span class="c-name">준비</span></div>
+      <div class="c-card" data-i="1"><span class="c-day">Day2</span><span class="c-name">디자인</span></div>
+      <div class="c-card" data-i="2"><span class="c-day">Day3</span><span class="c-name">프론트엔드</span></div>
+      <div class="c-card" data-i="3"><span class="c-day">Day4</span><span class="c-name">백엔드</span></div>
+      <div class="c-card" data-i="4"><span class="c-day">Day5</span><span class="c-name">발표</span></div>
+    </div>
+  </section>
+
+  <!-- ══════════════ SECTION 03-1 · DAY 1 SETUP ══════════════ -->
+  <section id="day-1" class="scene day1-scene">
+    <span class="caption">Day1: VS Code 셋팅하기</span>
+    <div class="dnd-wrap" id="dnd-wrap">
+      <div class="dnd-items" id="dnd-items">
+        <div class="dnd-item" id="di-claude" draggable="true" data-id="claude">
+          <img src="assets/images/image1.svg" alt="Claude">
+          <span>Claude</span>
+        </div>
+        <div class="dnd-item" id="di-nodejs" draggable="true" data-id="nodejs">
+          <img src="assets/images/image2.svg" alt="Node.js">
+          <span>Node.js</span>
+        </div>
+        <div class="dnd-item" id="di-github" draggable="true" data-id="github">
+          <img src="assets/images/image3.svg" alt="GitHub">
+          <span>GitHub</span>
+        </div>
+      </div>
+      <div class="dnd-arrow-wrap" id="dnd-arrow-wrap">
+        <img src="assets/images/image4.svg" alt="drag here" id="dnd-arrow">
+      </div>
+      <div class="dnd-box" id="dnd-box">
+        <img src="assets/images/image5.svg" alt="open box"   id="box-open">
+        <img src="assets/images/image6.svg" alt="sealed box" id="box-sealed" style="display:none">
+      </div>
+    </div>
+    <div id="confetti-root"></div>
+  </section>
+
+  <!-- ══════════════ SECTION 03-2 · DAY 1 DEPLOY ══════════════ -->
+  <section id="day-1-deploy" class="scene day1-deploy-scene">
+    <span class="caption">Day1: GitHub 배포하기</span>
+    <div class="gh-browser" id="gh-browser">
+      <div class="gh-bar">
+        <div class="gh-dots"><span></span><span></span><span></span></div>
+        <span class="gh-url">github.com / repo / settings</span>
+        <button class="gh-btn" id="gh-s1" data-step="1">Settings</button>
+      </div>
+      <div class="gh-body">
+        <nav class="gh-sidebar">
+          <span class="gh-sitem">Code</span>
+          <span class="gh-sitem">Issues</span>
+          <span class="gh-sitem gh-pages-item" id="gh-s2" data-step="2">Pages</span>
+          <span class="gh-sitem">Actions</span>
+        </nav>
+        <div class="gh-content">
+          <h3>GitHub Pages</h3>
+          <p class="gh-label">Branch source:</p>
+          <div class="gh-row">
+            <button class="gh-btn" id="gh-s3" data-step="3">main ▾</button>
+            <button class="gh-btn gh-save-btn" id="gh-s4" data-step="4">Save</button>
+          </div>
+          <p class="gh-success" id="gh-success"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ SECTION 04-1 · DAY 2 GOOGLE STITCH ══════════════ -->
+  <section id="day-2" class="scene day2-scene">
+    <span class="caption">Day2: 자동 UI 디자인 시스템</span>
+    <div class="day2-layout">
+      <div class="day2-left">
+        <h2 class="day2-title">Google Stitch</h2>
+        <div class="video-box" id="video-box">
+          <video id="main-video" src="assets/videos/stitch.mp4" muted playsinline preload="none"></video>
+          <div class="video-ph" id="video-ph">
+            <div class="vph-icon">▶</div>
+            <div class="vph-txt">Video placeholder</div>
+          </div>
+        </div>
+        <p class="video-path">assets/videos/stitch.mp4</p>
+      </div>
+      <div class="day2-right">
+        <p class="day2-note">무료니까 잘리기전에</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ SECTION 04-2 · DAY 2 DESIGN ══════════════ -->
+  <section id="day-2-design" class="scene day2-design-scene">
+    <span class="caption">Day2: 디자인 꿀팁</span>
+    <div class="design-center">
+      <p class="design-big">디자인 잘하는 방법</p>
+      <p class="design-hint">*아무데나 우클릭*</p>
+    </div>
+  </section>
+
+  <!-- Context menu (global, placed outside section for z-index) -->
+  <div class="ctx-wrap" id="ctx-wrap" style="display:none">
+    <div class="ctx-main" id="ctx-main">
+      <div class="ctx-item" data-idx="0"><span>20%의 확률</span><span class="ctx-chevron">›</span></div>
+      <div class="ctx-item" data-idx="1"><span>50%의 확률</span><span class="ctx-chevron">›</span></div>
+      <div class="ctx-item" data-idx="2"><span>80%의 확률</span><span class="ctx-chevron">›</span></div>
+      <div class="ctx-item" data-idx="3"><span>잉잉기본만하고시펑</span><span class="ctx-chevron">›</span></div>
+    </div>
+    <div class="ctx-sub" id="ctx-sub" style="display:none"></div>
+  </div>
+
+  <!-- ══════════════ SECTION 05-1 · DAY 4 CHEAT KEYS ══════════════ (also anchors #day-3) -->
+  <div id="day-3" style="position:relative;top:-72px"></div>
+  <section id="day-4" class="scene terminal-scene">
+    <span class="caption caption-neon">Day3:명령어 외우기</span>
+    <div class="t-layout">
+      <div class="t-card" id="t-card">
+        <div class="t-titlebar">
+          <span class="t-dot td-r"></span><span class="t-dot td-y"></span><span class="t-dot td-g"></span>
+          <span class="t-title">claude — terminal</span>
+        </div>
+        <div class="t-body">
+          <div class="t-prev" id="t-prev-lines"></div>
+          <div class="t-row">
+            <span class="t-ps">$ </span>
+            <span class="t-cmd" id="t-cmd"></span>
+            <span class="t-cursor">▋</span>
+          </div>
+        </div>
+      </div>
+      <div class="t-info" id="t-info">
+        <div class="t-badge" id="t-badge">01 / 09</div>
+        <div class="t-ititle" id="t-ititle"></div>
+        <div class="t-idesc"  id="t-idesc"></div>
+      </div>
+    </div>
+    <div class="t-nav">
+      <button class="t-navbtn" id="t-prev-btn">← PREV</button>
+      <button class="t-navbtn" id="t-next-btn">NEXT →</button>
+    </div>
+  </section>
+
+  <!-- ══════════════ SECTION 05-2 · DAY 4 MD SPLIT ══════════════ -->
+  <section id="day-4-md" class="scene md-scene">
+    <span class="caption">Day3: 페이지 더하기 나누기</span>
+    <div class="md-layout">
+      <div class="md-btns">
+        <button class="md-btn active" id="md-few">페이지 적을때</button>
+        <button class="md-btn"        id="md-many">페이지 많을때</button>
+      </div>
+      <div class="md-blocks" id="md-blocks">
+        <div class="md-block">HTML</div>
+        <div class="md-block">자바</div>
+        <div class="md-block">CSS</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ SECTION 06-1 · DAY 5 BACKEND ══════════════ -->
+  <section id="day-5" class="scene backend-scene">
+    <span class="caption caption-white">Day4: 백엔드 개발</span>
+    <div class="be-typing" id="be-typing"></div>
+    <div class="be-error" id="be-error" style="display:none">
+      <div class="be-err-box">
+        <span class="be-err-title">Error!</span>
+        <span class="be-err-msg">너무 어려움</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ SECTION 06-2 · DAY 4 INSIGHTS ══════════════ -->
+  <section id="day-5-insights" class="scene insight-scene">
+    <span class="caption">Day4 기억에 남는말</span>
+    <div class="be-insights" id="be-insights">
+      <p class="be-line">"높은 모델 쓰는 사람이 경쟁력을 갖는다"</p>
+      <p class="be-line">"서버는 돈주고 사자"</p>
+      <p class="be-line">"오늘 할일을 미루면 시간이 단축되는 시대"</p>
+    </div>
+    <button class="be-done" id="be-done" style="display:none">완료</button>
+  </section>
+
+  <!-- ══════════════ SECTION 07-1 · DAY 5 FINAL ══════════════ -->
+  <section id="day-5-final" class="scene final-scene">
+    <span class="caption">Day5</span>
+    <div class="final-row">
+      <div class="final-word-wrap" id="fw-present">
+        <span class="final-word">발표</span>
+      </div>
+      <div class="final-word-wrap" id="fw-absent">
+        <span class="final-word">결석</span>
+      </div>
+    </div>
+    <div class="ticket-show" id="ticket-show">
+      <img id="ticket-img" src="" alt="ticket">
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

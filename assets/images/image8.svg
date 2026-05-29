@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 200" width="480" height="200">
+  <!-- airplane ticket lo-fi -->
+  <rect x="4" y="4" width="472" height="192" rx="12" fill="#FFFCF0" stroke="#000" stroke-width="3"/>
+  <!-- perforation line -->
+  <line x1="320" y1="4" x2="320" y2="196" stroke="#000" stroke-width="2" stroke-dasharray="6,5"/>
+  <!-- left section -->
+  <text x="30" y="45" font-family="monospace" font-size="11" fill="#888">BOARDING PASS</text>
+  <text x="30" y="80" font-family="monospace" font-size="28" font-weight="bold" fill="#000">서울 → 제주</text>
+  <text x="30" y="110" font-family="monospace" font-size="12" fill="#000">ICN → CJU</text>
+  <rect x="30" y="125" width="240" height="2" fill="#000" opacity="0.2"/>
+  <text x="30" y="148" font-family="monospace" font-size="11" fill="#555">NAME: 바이브코더</text>
+  <text x="30" y="168" font-family="monospace" font-size="11" fill="#555">SEAT: 12A  CLASS: VIBE</text>
+  <!-- right stub -->
+  <text x="336" y="60" font-family="monospace" font-size="11" fill="#888">GATE</text>
+  <text x="336" y="90" font-family="monospace" font-size="32" font-weight="bold" fill="#000">C7</text>
+  <text x="336" y="120" font-family="monospace" font-size="11" fill="#555">JEJU</text>
+  <text x="336" y="145" font-family="monospace" font-size="10" fill="#555">CJU</text>
+  <!-- plane icon -->
+  <text x="380" y="170" font-size="36">✈</text>
+</svg>

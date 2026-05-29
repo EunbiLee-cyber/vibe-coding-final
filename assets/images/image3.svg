@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <!-- GitHub octocat simplified lo-fi -->
+  <circle cx="60" cy="55" r="38" fill="#1a1a1a" stroke="#000" stroke-width="2"/>
+  <circle cx="60" cy="48" r="22" fill="#fff"/>
+  <circle cx="52" cy="44" r="4" fill="#1a1a1a"/>
+  <circle cx="68" cy="44" r="4" fill="#1a1a1a"/>
+  <path d="M50 54 Q60 62 70 54" stroke="#1a1a1a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- tentacles -->
+  <path d="M38 70 Q30 80 35 90" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M82 70 Q90 80 85 90" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M48 80 Q44 92 48 100" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M72 80 Q76 92 72 100" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M60 82 Q60 95 60 105" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/>
+</svg>

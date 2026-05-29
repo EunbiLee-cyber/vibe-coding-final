@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <!-- Node.js hexagon - lo-fi style -->
+  <polygon points="60,8 104,32 104,80 60,104 16,80 16,32" fill="#417E38" stroke="#000" stroke-width="3"/>
+  <polygon points="60,18 96,38 96,74 60,94 24,74 24,38" fill="#83CD29" stroke="#000" stroke-width="1.5"/>
+  <text x="60" y="52" font-family="monospace" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">Node</text>
+  <text x="60" y="70" font-family="monospace" font-size="12" fill="#fff" text-anchor="middle">.js</text>
+</svg>

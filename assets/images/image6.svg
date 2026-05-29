@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+  <!-- sealed box with tape -->
+  <rect x="20" y="40" width="120" height="110" rx="4" fill="#D4A96A" stroke="#000" stroke-width="3"/>
+  <!-- top flap closed -->
+  <rect x="20" y="30" width="120" height="14" rx="2" fill="#C4994A" stroke="#000" stroke-width="2"/>
+  <!-- tape strip -->
+  <rect x="65" y="25" width="30" height="35" rx="3" fill="rgba(255,230,100,0.8)" stroke="#000" stroke-width="1.5"/>
+  <!-- horizontal crease -->
+  <line x1="20" y1="80" x2="140" y2="80" stroke="#000" stroke-width="2"/>
+  <!-- box label -->
+  <rect x="40" y="90" width="80" height="44" rx="3" fill="#fff" stroke="#000" stroke-width="2"/>
+  <text x="80" y="110" font-family="monospace" font-size="10" fill="#000" text-anchor="middle">SETUP</text>
+  <text x="80" y="126" font-family="monospace" font-size="9" fill="#555" text-anchor="middle">✓ packed</text>
+  <!-- star stickers -->
+  <text x="28" y="58" font-size="14">⭐</text>
+  <text x="118" y="58" font-size="14">⭐</text>
+</svg>

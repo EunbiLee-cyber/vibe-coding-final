@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 200" width="480" height="200">
+  <!-- bootcamp registration ticket lo-fi -->
+  <rect x="4" y="4" width="472" height="192" rx="12" fill="#E8F4FF" stroke="#000" stroke-width="3"/>
+  <line x1="320" y1="4" x2="320" y2="196" stroke="#000" stroke-width="2" stroke-dasharray="6,5"/>
+  <!-- ticket background accent -->
+  <rect x="4" y="4" width="472" height="50" rx="12" fill="#1a56c4" opacity="0.1"/>
+  <!-- left section -->
+  <text x="30" y="38" font-family="monospace" font-size="11" fill="#1a56c4" font-weight="bold">바이브코딩 10기 신청서</text>
+  <text x="30" y="72" font-family="monospace" font-size="22" font-weight="bold" fill="#000">VIBE CODING</text>
+  <text x="30" y="98" font-family="monospace" font-size="16" fill="#1a56c4">BOOTCAMP 10기</text>
+  <rect x="30" y="110" width="240" height="2" fill="#000" opacity="0.15"/>
+  <text x="30" y="134" font-family="monospace" font-size="11" fill="#555">장소: 제주도</text>
+  <text x="30" y="154" font-family="monospace" font-size="11" fill="#555">기간: 4박 5일</text>
+  <text x="30" y="174" font-family="monospace" font-size="11" fill="#555">STATUS: 신청 완료 ✓</text>
+  <!-- right stub -->
+  <text x="336" y="55" font-family="monospace" font-size="10" fill="#888">NO.</text>
+  <text x="336" y="85" font-family="monospace" font-size="30" font-weight="bold" fill="#1a56c4">10기</text>
+  <text x="336" y="118" font-family="monospace" font-size="10" fill="#555">JEJU</text>
+  <text x="336" y="140" font-family="monospace" font-size="10" fill="#555">ISLAND</text>
+  <text x="348" y="175" font-size="32">🏝️</text>
+</svg>

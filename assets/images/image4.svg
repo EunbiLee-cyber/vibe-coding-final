@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 60" width="80" height="60">
+  <!-- hand-drawn arrow -->
+  <path d="M5 30 Q20 28 45 30 Q38 20 50 30 Q38 40 45 30" stroke="#000" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M45 30 L72 30" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+  <path d="M62 18 L75 30 L62 42" stroke="#000" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="40" y="52" font-family="monospace" font-size="10" fill="#555" text-anchor="middle">drag!</text>
+</svg>
