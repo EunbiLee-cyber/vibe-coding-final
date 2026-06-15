@@ -81,6 +81,15 @@ body {
   overflow: hidden;
 }
 
+.hero-green-overlay {
+  position: absolute;
+  inset: 0;
+  background: #1C6658;
+  opacity: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
 .hero-title {
   margin-top: 100px;
   font-size: 120pt;
@@ -237,6 +246,21 @@ body {
 .dnd-box.over { border-color: #000; background: rgba(0,0,0,.04); }
 .dnd-box img  { width: 140px; height: 140px; object-fit: contain; }
 
+.dnd-box-badge {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #007acc;
+  color: #fff;
+  font-family: var(--font);
+  font-size: 13px;
+  padding: 3px 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+  letter-spacing: .03em;
+}
+
 /* confetti */
 #confetti-root {
   position: absolute;
@@ -264,6 +288,51 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font);
+  font-size: 11px;
+  color: #888;
+  animation: scroll-hint-bounce 2s ease-in-out infinite;
+  z-index: 10;
+}
+
+.scroll-mouse {
+  width: 24px;
+  height: 38px;
+  border: 2.5px solid #aaa;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+}
+
+.scroll-wheel {
+  width: 3px;
+  height: 7px;
+  background: #aaa;
+  border-radius: 2px;
+  animation: scroll-wheel-move 1.6s ease-in-out infinite;
+}
+
+@keyframes scroll-wheel-move {
+  0%   { transform: translateY(0);   opacity: 1; }
+  80%  { transform: translateY(9px); opacity: 0; }
+  100% { transform: translateY(0);   opacity: 0; }
+}
+
+@keyframes scroll-hint-bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0);   }
+  50%       { transform: translateX(-50%) translateY(-6px); }
 }
 
 .gh-browser {
@@ -665,7 +734,15 @@ body {
   opacity: 0;
   transition: opacity .5s;
 }
-.be-done.show { opacity: 1; }
+.be-done.show {
+  opacity: 1;
+  animation: pulse-done 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse-done {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.13); box-shadow: 0 0 20px rgba(0,188,212,.5); }
+}
 
 /* ═══════════════════════════════════════
    06-2  DAY 4 INSIGHTS

@@ -1,5 +1,5 @@
 'use strict';
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 /* ═══════════════════════════════════════
    HEADER – active link on scroll
@@ -25,7 +25,13 @@ function initHeader() {
     link.addEventListener('click', e => {
       e.preventDefault();
       const target = document.querySelector(link.getAttribute('href'));
-      if (target) target.scrollIntoView({ behavior: 'smooth' });
+      if (target) {
+        gsap.to(window, {
+          duration: 0.8,
+          scrollTo: { y: target, offsetY: 36 },
+          ease: 'power2.inOut'
+        });
+      }
     });
   });
 }
@@ -69,13 +75,11 @@ function initHero() {
   if (island) gsap.fromTo(island,   { opacity:0, y:60 }, { opacity:1, y:0, duration:.9, delay:.5 });
   if (building) gsap.fromTo(building, { opacity:0 },     { opacity:1, duration:.9, delay:1 });
 
-  // Scroll: zoom images together, fade title
+  // Scroll: zoom images together, fade title, green overlay fills
   const heroImages = document.getElementById('hero-images');
   if (!heroImages) return;
 
-  gsap.to(heroImages, {
-    scale: 2.2,
-    ease: 'none',
+  const tl = gsap.timeline({
     scrollTrigger: {
       trigger: '#hero',
       start: 'top top',
@@ -85,55 +89,62 @@ function initHero() {
     }
   });
 
-  ScrollTrigger.create({
-    trigger: '#hero',
-    start: 'top top',
-    end: 'bottom top',
-    scrub: true,
-    onUpdate: self => {
-      gsap.set('.hero-title', { opacity: Math.max(0, 1 - self.progress * 4) });
-    }
-  });
+  tl.to(heroImages, { scale: 2.2, ease: 'none' }, 0)
+    .to('.hero-title', { opacity: 0, ease: 'none', duration: 0.25 }, 0)
+    .to('#hero-green-overlay', { opacity: 1, ease: 'none', duration: 0.6 }, 0.4);
 }
 
 /* ═══════════════════════════════════════
    02  INTRO CARDS
 ═══════════════════════════════════════ */
 function initIntro() {
-  const cards = document.querySelectorAll('.c-card');
-  // Start completely off-screen to the right
-  gsap.set(cards, { x: '300vw', opacity: 0, scale: 0.8 });
+  const cards = [...document.querySelectorAll('.c-card')];
+  const N = cards.length;
+
+  // Start off-screen right + slightly above for arc feel
+  gsap.set(cards, { x: '110vw', y: -70, opacity: 0, scale: 0.85, rotation: 7 });
+
+  // Build sequential timeline: each card slides in along a curved arc (x+y simultaneously)
+  const tl = gsap.timeline();
+  cards.forEach((card, i) => {
+    tl.to(card, {
+      x: 0, y: 0, opacity: 1, scale: 1, rotation: 0,
+      duration: 1,
+      ease: 'power3.out'
+    }, i * 0.65);
+  });
+
+  let floatActive = false;
+
+  function startFloat() {
+    if (floatActive) return;
+    floatActive = true;
+    cards.forEach((card, i) => {
+      gsap.to(card, {
+        y: -16, duration: 1.7 + i * 0.2,
+        yoyo: true, repeat: -1,
+        ease: 'sine.inOut', delay: i * 0.24
+      });
+    });
+  }
+
+  function stopFloat() {
+    floatActive = false;
+    cards.forEach(c => gsap.killTweensOf(c));
+  }
 
   ScrollTrigger.create({
     trigger: '#intro',
-    start: 'top 60%',
-    onEnter: () => {
-      // Wave in: elastic overshoot staggered left-to-right creates big wave feel
-      gsap.to(cards, {
-        x: 0,
-        opacity: 1,
-        scale: 1,
-        duration: 1.5,
-        stagger: { each: 0.13, from: 'start' },
-        ease: 'elastic.out(1, 0.42)',
-        onComplete: () => {
-          // Float each card with different phase after landing
-          cards.forEach((card, i) => {
-            gsap.to(card, {
-              y: -16, duration: 1.7 + i * 0.2,
-              yoyo: true, repeat: -1,
-              ease: 'sine.inOut', delay: i * 0.24
-            });
-          });
-        }
-      });
-    },
+    start: 'top top',
+    end: `+=${N * 380 + 400}`,
+    pin: true,
+    scrub: 1.5,
+    animation: tl,
+    onLeave: () => startFloat(),
+    onEnterBack: () => { stopFloat(); },
     onLeaveBack: () => {
-      gsap.killTweensOf(cards);
-      gsap.to(cards, {
-        x: '300vw', opacity: 0, scale: 0.8,
-        duration: 0.5, stagger: { each: 0.07, from: 'end' }
-      });
+      stopFloat();
+      gsap.set(cards, { x: '110vw', y: -70, opacity: 0, scale: 0.85, rotation: 7 });
     }
   });
 }
@@ -436,16 +447,18 @@ function initBackend() {
 
   let typingDone = false;
 
-  // Scroll drives typewriter – section pinned for the duration
+  const HOLD = 600;
   ScrollTrigger.create({
     trigger: '#day-5',
     start: 'top top',
-    end:   `+=${BE_TEXT.length * 26}`,
+    end:   `+=${BE_TEXT.length * 6 + HOLD}`,
     pin:   true,
     scrub: 1,
     onUpdate: self => {
+      const totalLen = BE_TEXT.length * 6 + HOLD;
+      const typingProgress = Math.min(self.progress * (BE_TEXT.length * 6 + HOLD) / (BE_TEXT.length * 6), 1);
       if (typingDone) return;
-      const n = Math.floor(self.progress * BE_TEXT.length);
+      const n = Math.floor(typingProgress * BE_TEXT.length);
       typing.textContent = BE_TEXT.slice(0, n);
 
       if (n >= BE_TEXT.length) {
@@ -503,9 +516,10 @@ function initFinal() {
     show.classList.remove('show');
   }
 
-  present.addEventListener('mouseenter', () => showTicket('assets/images/image8.svg'));
+  // 발표 → 서울(image9), 결석 → 제주(image8)
+  present.addEventListener('mouseenter', () => showTicket('assets/images/image9.svg'));
   present.addEventListener('mouseleave', hideTicket);
-  absent.addEventListener('mouseenter',  () => showTicket('assets/images/image9.svg'));
+  absent.addEventListener('mouseenter',  () => showTicket('assets/images/image8.svg'));
   absent.addEventListener('mouseleave',  hideTicket);
 }
 
